@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style type="text/css">
+		input[type=number]::-webkit-inner-spin-button, 
+		input[type=number]::-webkit-outer-spin-button { 
+		    -webkit-appearance: none;
+		    -moz-appearance: none;
+		    appearance: none;
+		    margin: 0; 
+		}
+		input[type=date]::-webkit-inner-spin-button, 
+		input[type=date]::-webkit-outer-spin-button { 
+		    -webkit-appearance: none;
+		    -moz-appearance: none;
+		    appearance: none;
+		    margin: 0; 
+		}
+		input[type=time]::-webkit-inner-spin-button, 
+		input[type=time]::-webkit-outer-spin-button { 
+		    -webkit-appearance: none;
+		    -moz-appearance: none;
+		    appearance: none;
+		    margin: 0; 
+		}
+		select,input{
+			width:11%;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<form onchange="updateFlightValue('selectDeparture','selectDestination','flightValue','isIdaVolta')">
+		<!-- CTRL C This
+		<label>
+			<input type="" name="" value="" placeholder="">
+		</label-->
+		<label>Nome
+			<input type="text">
+		</label><p>
+		<label>E-Mail
+			<input type="email">
+		</label><p>
+		<label>CPF
+			<input type="number" id="cpfNumber">
+		</label><p>
+		<label>Partida
+			<select id="selectDeparture" onchange="updateDestination('selectDeparture','selectDestination')">
+				<option value=""></option>
+				<option value="RJ">Rio De Janeiro</option>
+				<option value="SP">São Paulo</option>
+				<option value="SC">Santa Catarina</option>
+				<option value="BH">Belo Horizonte</option>
+				<option value="SA">Salvador</option>
+			</select>
+		</label><p>
+		<label>Destino
+			<select id="selectDestination">
+				<option value=""></option>
+			</select>
+		</label><p>
+		<label>Dia De Partida
+			<input type="date">
+		</label><p>
+		<label>Horario De Partida
+			<input type="time">
+		</label><p>
+		<label onchange="ableText()">Ida E Volta
+			<input type="checkbox" id="isIdaVolta" onclick="ableText('isIdaVolta','updateDisabled','updateTime')">
+		</label><p>
+		<label>Dia De Retorno
+			<input type="date" id="updateDisabled" disabled>
+		</label><p>
+		<label>Horario De Retorno
+			<input type="time" id="updateTime" disabled>
+		</label><p>
+		<label>Valor Da Passagem
+			<input type="number" id="flightValue" value="0">
+		</label><p>
+		<label>
+			<input type="submit" value="Enviar">
+			<input type="reset" value="Limpar">
+		</label>
+	</form>
+</body>
+<script type="text/javascript">
+	function ableText(checkboxID,updateDisabledID,updateTimeID) {
+		let idaVolta = document.getElementById('isIdaVolta');
+		let updateDisabled = document.getElementById('updateDisabled');
+		let updateTime = document.getElementById('updateTime');
+		toggleDisabled = idaVolta.checked ? updateDisabled.disabled = false : updateDisabled.disabled = true;
+		toggleDisabled = idaVolta.checked ? updateTime.disabled = false : updateTime.disabled = true;
+	}
+
+	// let selectDepartureOptions = ['RJ','SP','BH','SA'];
+	// let selectDestinationOption = selectDepartureOptions;
+
+	function updateDestination(selectDepartureID,selectDestinationID){
+		let departure = document.getElementById('selectDeparture');
+		let destination = document.getElementById('selectDestination');
+
+		while(destination.length){
+			destination.remove(0);
+		}
+
+		if (selectDeparture.value == 'RJ'){
+			let option1 = document.createElement('option');
+			option1.value = '';
+			option1.text = '';
+			destination.add(option1);
+			let option2 = document.createElement('option');
+			option2.value = 'SP';
+			option2.text = 'São Paulo';
+			destination.add(option2);
+			let option3 = document.createElement('option');
+			option3.value = 'SC';
+			option3.text = 'Santa Catarina';
+			destination.add(option3);
+			let option4 = document.createElement('option');
+			option4.value = 'BH';
+			option4.text = 'Belo Horizonte';
+			destination.add(option4);
+			let option5 = document.createElement('option');
+			option5.value = 'SA';
+			option5.text = 'Salvador';
+			destination.add(option5);
+		}
+		if (selectDeparture.value == 'SP'){
+			let option1 = document.createElement('option');
+			option1.value = '';
+			option1.text = '';
+			destination.add(option1);
+			let option2 = document.createElement('option');
+			option2.value = 'RJ';
+			option2.text = 'Rio De Janeiro';
+			destination.add(option2);
+			let option3 = document.createElement('option');
+			option3.value = 'SC';
+			option3.text = 'Santa Catarina';
+			destination.add(option3);
+			let option4 = document.createElement('option');
+			option4.value = 'BH';
+			option4.text = 'Belo Horizonte';
+			destination.add(option4);
+			let option5 = document.createElement('option');
+			option5.value = 'SA';
+			option5.text = 'Salvador';
+			destination.add(option5);
+		}
+		if (selectDeparture.value == 'SC'){
+			let option1 = document.createElement('option');
+			option1.value = '';
+			option1.text = '';
+			destination.add(option1);
+			let option2 = document.createElement('option');
+			option2.value = 'RJ';
+			option2.text = 'Rio De Janeiro';
+			destination.add(option2);
+			let option3 = document.createElement('option');
+			option3.value = 'SP';
+			option3.text = 'São Paulo';
+			destination.add(option3);
+			let option4 = document.createElement('option');
+			option4.value = 'BH';
+			option4.text = 'Belo Horizonte';
+			destination.add(option4);
+			let option5 = document.createElement('option');
+			option5.value = 'SA';
+			option5.text = 'Salvador';
+			destination.add(option5);
+		}
+		if (selectDeparture.value == 'BH'){
+			let option1 = document.createElement('option');
+			option1.value = '';
+			option1.text = '';
+			destination.add(option1);
+			let option2 = document.createElement('option');
+			option2.value = 'RJ';
+			option2.text = 'Rio De Janeiro';
+			destination.add(option2);
+			let option3 = document.createElement('option');
+			option3.value = 'SP';
+			option3.text = 'São Paulo';
+			destination.add(option3);
+			let option4 = document.createElement('option');
+			option4.value = 'SC';
+			option4.text = 'Santa Catarina';
+			destination.add(option4);
+			let option5 = document.createElement('option');
+			option5.value = 'SA';
+			option5.text = 'Salvador';
+			destination.add(option5);
+		}
+		if (selectDeparture.value == 'SA'){
+			let option1 = document.createElement('option');
+			option1.value = '';
+			option1.text = '';
+			destination.add(option1);
+			let option2 = document.createElement('option');
+			option2.value = 'RJ';
+			option2.text = 'Rio De Janeiro';
+			destination.add(option2);
+			let option3 = document.createElement('option');
+			option3.value = 'SP';
+			option3.text = 'São Paulo';
+			destination.add(option3);
+			let option4 = document.createElement('option');
+			option4.value = 'SC';
+			option4.text = 'Santa Catarina';
+			destination.add(option4);
+			let option5 = document.createElement('option');
+			option5.value = 'BH';
+			option5.text = 'Belo Horizonte';
+			destination.add(option5);
+		}
+	}
+
+	function updateFlightValue(selectDepartureID,selectDestinationID,flightValueID,checkboxID){
+		let departure = document.getElementById('selectDeparture');
+		let destination = document.getElementById('selectDestination');
+		let checkboxTrue = document.getElementById('isIdaVolta');
+
+		if(departure.value == '' || destination.value == ''){
+			flightValue.value = 0;
+		}else if(departure.value == 'RJ' && destination.value == 'SP'){
+			// RJ COMEÇA AQUI
+			flightValue.value = 300;
+		}else if(departure.value == 'RJ' && destination.value == 'SC'){
+			flightValue.value = 420;
+		}else if(departure.value == 'RJ' && destination.value == 'BH'){
+			flightValue.value = 410;
+		}else if(departure.value == 'RJ' && destination.value == 'SA'){
+			flightValue.value = 330;
+		}else if(departure.value == 'SP' && destination.value == 'RJ'){
+			flightValue.value = 300;
+		}else if(departure.value == 'SP' && destination.value == 'SC'){
+			flightValue.value = 420;
+		}else if(departure.value == 'SP' && destination.value == 'BH'){
+			flightValue.value = 410;
+		}else if(departure.value == 'SP' && destination.value == 'SA'){
+			flightValue.value = 330;
+		}else if(departure.value == 'BH' && destination.value == 'SP'){
+			flightValue.value = 300;
+		}else if(departure.value == 'BH' && destination.value == 'SC'){
+			flightValue.value = 420;
+		}else if(departure.value == 'BH' && destination.value == 'RJ'){
+			flightValue.value = 410;
+		}else if(departure.value == 'BH' && destination.value == 'SA'){
+			flightValue.value = 330;
+		}else if(departure.value == 'SC' && destination.value == 'SP'){
+			flightValue.value = 300;
+		}else if(departure.value == 'SC' && destination.value == 'RJ'){
+			flightValue.value = 420;
+		}else if(departure.value == 'SC' && destination.value == 'BH'){
+			flightValue.value = 410;
+		}else if(departure.value == 'SC' && destination.value == 'SA'){
+			flightValue.value = 330;
+		}else if(departure.value == 'SA' && destination.value == 'SP'){
+			flightValue.value = 300;
+		}else if(departure.value == 'SA' && destination.value == 'SC'){
+			flightValue.value = 420;
+		}else if(departure.value == 'SA' && destination.value == 'BH'){
+			flightValue.value = 410;
+		}else if(departure.value == 'SA' && destination.value == 'RJ'){
+			flightValue.value = 330;
+		}
+
+		if(checkboxTrue.checked == true){
+			let addValue = (flightValue.value * 30)/100;
+			flightValue.value = (parseInt,flightValue.value) + (parseInt,addValue);
+		}
+
+	}
+
+	
+</script>
+</html>
