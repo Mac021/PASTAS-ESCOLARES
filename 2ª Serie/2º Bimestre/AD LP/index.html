@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style type="text/css">
+		input[type=number]::-webkit-inner-spin-button, 
+		input[type=number]::-webkit-outer-spin-button { 
+		    -webkit-appearance: none;
+		    -moz-appearance: none;
+		    appearance: none;
+		    margin: 0; 
+		}
+		input[type=date]::-webkit-inner-spin-button, 
+		input[type=date]::-webkit-outer-spin-button { 
+		    -webkit-appearance: none;
+		    -moz-appearance: none;
+		    appearance: none;
+		    margin: 0; 
+		}
+		input[type=time]::-webkit-inner-spin-button, 
+		input[type=time]::-webkit-outer-spin-button { 
+		    -webkit-appearance: none;
+		    -moz-appearance: none;
+		    appearance: none;
+		    margin: 0; 
+		}
+		select,input{
+			width:11%;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<form>
+		<!-- CTRL C This
+		<label>
+			<input type="" name="" value="" placeholder="">
+		</label-->
+		<label>Nome
+			<input type="text">
+		</label><p>
+		<label>E-Mail
+			<input type="email">
+		</label><p>
+		<label>CPF
+			<input type="number" id="cpfNumber">
+		</label><p>
+		<label>Partida
+			<select id="selectDeparture" onchange="updateDestinationValue('selectDeparture','selectDestination','flightValue')">
+				<option value=""></option>
+				<option value="RJ">Rio De Janeiro</option>
+				<option value="SP">São Paulo</option>
+			</select>
+		</label><p>
+		<label>Destino
+			<select id="selectDestination">
+				<option value=""></option>
+			</select>
+		</label><p>
+		<label>Dia De Partida
+			<input type="date">
+		</label><p>
+		<label>Horario De Partida
+			<input type="time">
+		</label><p>
+		<label onchange="ableText()">Ida E Volta
+			<input type="checkbox" id="isIdaVolta" onclick="ableText('isIdaVolta','updateDisabled','updateTime')">
+		</label><p>
+		<label>Dia De Retorno
+			<input type="date" id="updateDisabled" disabled>
+		</label><p>
+		<label>Horario De Retorno
+			<input type="time" id="updateTime" disabled>
+		</label><p>
+		<label>Valor Da Passagem
+			<input type="number" id="flightValue" value="0">
+		</label><p>
+		<label>
+			<input type="submit" value="Enviar">
+			<input type="reset" value="Limpar">
+		</label>
+	</form>
+</body>
+<script type="text/javascript">
+	function ableText(checkboxID,updateDisabledID,updateTimeID) {
+		let idaVolta = document.getElementById('isIdaVolta');
+		let updateDisabled = document.getElementById('updateDisabled');
+		let updateTime = document.getElementById('updateTime');
+		toggleDisabled = idaVolta.checked ? updateDisabled.disabled = false : updateDisabled.disabled = true;
+		toggleDisabled = idaVolta.checked ? updateTime.disabled = false : updateTime.disabled = true;
+	}
+
+	function updateDestinationValue(selectDepartureID,selectDestinationID,flightValueID){
+		let departure = document.getElementById('selectDeparture');
+		let destination = document.getElementById('selectDestination');
+		let flightValue = document.getElementById('flightValue');
+
+		if (selectDeparture.value == ''){
+			flightValue.value = 0;
+		}
+		if (selectDeparture.value == 'RJ'){
+			flightValue.value = 400;
+		}
+		if (selectDeparture.value == 'SP'){
+			flightValue.value = 500
+		}
+	}
+</script>
+</html>
