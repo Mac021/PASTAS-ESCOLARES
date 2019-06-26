@@ -1,0 +1,153 @@
+<html><head><title>TESTE 2º ANO TÉCNICO</title>
+<script>
+function funcmarca()
+{
+marca=window.document.f1.marca.value;
+modelo=window.document.f1.modelo;
+for(I=0;I<=10;I++)
+{
+modelo.remove(0);
+}
+if(marca=="GM")
+{
+option=document.createElement("option");
+option.text=" ";
+modelo.add("option");
+option=document.createElement("option");
+option.text="Prisma";
+modelo.add("option");
+option=document.createElement("option");
+option.text="Onix";
+modelo.add("option");
+option=document.createElement("option");
+option.text="Cruse";
+modelo.add("option");
+}
+if(marca=="Ford")
+{
+option=document.createElement("option");
+option.text=" ";
+modelo.add("option");
+option=document.createElement("option");
+option.text="KA";
+modelo.add("option");
+option=document.createElement("option");
+option.text="Fiesta";
+modelo.add("option");
+option=document.createElement("option");
+option.text="Focus";
+modelo.add("option");
+}
+if(marca=="Fiat")
+{
+option=document.createElement("option");
+option.text=" ";
+modelo.add("option");
+option=document.createElement("option");
+option.text="Chronos";
+modelo.add("option");
+option=document.createElement("option");
+option.text="Argo";
+modelo.add("option");
+option=document.createElement("option");
+option.text="Toro";
+modelo.add("option");
+}
+if(marca=="Volkswagen")
+{
+option=document.createElement("option");
+option.text=" ";
+modelo.add("option");
+option=document.createElement("option");
+option.text="Virtus";
+modelo.add("option");
+option=document.createElement("option");
+option.text="Gol";
+modelo.add("option");
+option=document.createElement("option");
+option.text="Voyage";
+modelo.add("option");
+}
+}
+function funcmodelo()
+{
+var preco=window.document.f1.preco;
+var modelo=window.document.f1.modelo;
+for(I=0;I<=10;I++)
+{
+preco.remove(0)
+}
+if((modelo=="Prisma")||(modelo=="Fiesta")||(modelo=="Voyage"))
+{
+window.document.f1.preco.value="40.000,00";
+}
+if((modelo=="Onix")||(modelo=="Argo")||(modelo="Gol"))
+{
+window.document.f1.preco.value="35.000,00";
+}
+if(modelo=="Cruse")
+{
+window.document.f1.preco.value="75.000,00";
+}
+if(modelo=="KA")
+{
+window.document.f1.preco.value="30.000,00";
+}
+/*if(modelo=="Fiesta")
+{
+window.document.f1.preco.value="40.000,00";
+}*/
+if(modelo=="Focus")
+{
+window.document.f1.preco.value="80.000,00";
+}
+if(modelo=="Chronos")
+{
+window.document.f1.preco.value="50.000,00";
+}
+/*if(modelo=="Argo")
+{
+window.document.f1.preco.value="35.000,00";
+}*/
+if(modelo=="Toro")
+{
+window.document.f1.preco.value="60.000,00";
+}
+if(modelo=="Virtus")
+{
+window.document.f1.preco.value="65.000,00";
+}
+/*if(modelo=="Gol")
+{
+window.document.f1.preco.value="35.000,00";
+}*/
+/*if(modelo=="Voyage")
+{
+window.document.f1.preco.value="40.000,00";
+}*/
+}
+</script>
+</head><body>
+<form>
+Chassi: &bnsp;<input type="text" size="10">
+Placa: &bnsp;<ijput type="number" size="10"><p>
+Marca:<select name="marca" onchange="funcmarca()">
+<option value="  "></option>
+<option value="GM">GM</option>
+<option value="Ford">Ford</option>
+<option value="Fiat">Fiat</option>
+<option value="Volkswagen">Volkswagen</option>
+</select>
+&nbsp Modelo: &bnsp;<select name="modelo" onchange="funcmodelo()">
+</select>
+<br><br>
+Preço:<select name="preço" size="10" onchange="funcpreco()">
+</select>
+</form></body>
+</html>
+
+
+
+
+
+
