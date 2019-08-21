@@ -1,0 +1,92 @@
+/* IMPORTS */
+
+@import url('https://fonts.googleapis.com/css?family=Hepta+Slab');
+
+/* TAG STYLES ONLY */
+
+*{
+	margin: 0;
+	padding: 0;
+	font-family: 'Hepta Slab', serif;
+	color: #727274;
+}
+
+body{
+	background-color: #f0f0f0;
+}
+
+p{
+	margin: 8px;
+}
+
+input{
+	margin-top: 12px;
+	padding: 7px;
+
+	display: list-item;
+	width: 50vh;
+}
+
+/* CLASS STYLES ONLY */
+
+.page-title{
+	position: sticky;
+	text-align: center;
+	padding: 23px;
+	color:#f0f0f0;
+	font-size: 31px;
+	background-color: #474749;
+}
+
+.content{
+	z-index: -1;
+	margin: 2% 4%;
+}
+
+.form{
+	margin-top: 5%;
+}
+
+.form-title{
+	font-size: 31px;
+}
+
+.btn{
+	margin: 12px auto;
+	padding: 27px;
+
+	width: 50vh;
+	border: 0;
+	border-radius: 3px;
+
+	color: #f0f0f0;
+	font-size:19px;
+	background-color: #95969a;
+	display: list-item;
+	text-decoration: none;
+	text-align: center;
+}
+
+/* ID STYLES ONLY */
+
+#btnGroup{
+	margin-top: 20vh;
+}
+
+#submit{
+	margin-top : 17px; 
+	padding: 13px;
+	border: 0;
+	
+	font-size: 17px;
+	color: #f0f0f0;
+	background-color: #95969a;
+}
+
+#return{
+	position: absolute;
+	left: 80%;
+	top: 87vh;
+	padding: 9px;
+	width: 7%;
+}
